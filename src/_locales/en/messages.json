@@ -1,0 +1,7 @@
+{
+  "extName": { "message": "LichtVernichter" },
+  "extDescription": { "message": "Dark theme for websites without one, only on the sites you add." },
+  "siteLabel": { "message": "Dark theme on" },
+  "enabledLabel": { "message": "Enable extension" },
+  "badgeOff": { "message": "off" }
+}

@@ -1,0 +1,7 @@
+{
+  "extName": { "message": "LichtVernichter" },
+  "extDescription": { "message": "Тёмная тема для сайтов без неё — только на сайтах, которые вы добавили." },
+  "siteLabel": { "message": "Тёмная тема на" },
+  "enabledLabel": { "message": "Включить расширение" },
+  "badgeOff": { "message": "выкл" }
+}
