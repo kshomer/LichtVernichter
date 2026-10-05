@@ -1,0 +1,110 @@
+/* popup.css — оформление окна настроек: цвета Material Design для светлой и тёмной темы браузера,
+   переключатели на основе обычных флажков. */
+
+:root {
+  color-scheme: light dark;
+  --bg: light-dark(#fff, #202124);
+  --fg: light-dark(#202124, #e8eaed);
+  --muted: light-dark(#5f6368, #9aa0a6);
+  --line: light-dark(#dadce0, #3c4043);
+  --accent: light-dark(#1a73e8, #8ab4f8);
+  font: 13px/1.4 system-ui, sans-serif;
+  accent-color: var(--accent);
+}
+
+body {
+  width: 280px;
+  margin: 0;
+  padding: 12px;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 15px;
+}
+
+/* Обычный флажок в виде переключателя: сохраняется управление с клавиатуры и экранным диктором. */
+[role="switch"] {
+  appearance: none;
+  position: relative;
+  width: 36px;
+  height: 20px;
+  margin: 0;
+  border-radius: 10px;
+  background: var(--line);
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+[role="switch"]::before {
+  content: "";
+  position: absolute;
+  inset: 2px auto 2px 2px;
+  width: 16px;
+  border-radius: 50%;
+  background: #fff;
+  transition: translate 0.15s;
+}
+
+[role="switch"]:checked {
+  background: var(--accent);
+}
+
+[role="switch"]:checked::before {
+  translate: 16px 0;
+}
+
+[role="switch"]:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Начальное состояние, прочитанное из хранилища, появляется без анимации: переходы включаются
+   классом ready, когда браузер уже применил это состояние (см. popup.js). */
+body:not(.ready) [role="switch"],
+body:not(.ready) [role="switch"]::before {
+  transition: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [role="switch"],
+  [role="switch"]::before {
+    transition: none;
+  }
+}
+
+/* Метка охватывает текст и переключатель: щелчок по имени сайта тоже переключает, а текст метки
+   (с именем сайта) — доступное имя переключателя. */
+.site {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.site > span {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.site:has(:disabled) {
+  opacity: 0.5;
+}
+
+output[name="host"] {
+  color: var(--fg);
+  font-weight: 600;
+}
