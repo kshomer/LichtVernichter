@@ -1,0 +1,23 @@
+<!doctype html>
+<!-- popup.html — разметка окна настроек: выключатель расширения и переключатель для открытого сайта. -->
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+  <script src="../common.js" defer></script>
+  <script src="popup.js" type="module"></script>
+</head>
+<body>
+  <form name="settings">
+    <header>
+      <h1 data-i18n="extName"></h1>
+      <input type="checkbox" role="switch" name="enabled" data-i18n-label="enabledLabel">
+    </header>
+
+    <label class="site">
+      <span><span data-i18n="siteLabel"></span> <output name="host"></output></span>
+      <input type="checkbox" role="switch" name="site">
+    </label>
+  </form>
+</body>
+</html>
